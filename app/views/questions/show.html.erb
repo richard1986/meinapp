@@ -1,0 +1,37 @@
+<div class="container">
+	<div class="card" style="width: 100%;">
+	  
+		  <div class="card-body">
+		  	<img src="<%= @question.gravatar %>" class="media-object" alt="">
+		    <h5 class="card-header"><%= @question.email %> asked:</h5>
+		    <div class="card-body">
+		    	<p class="card-title"><%= @question.body %></p>
+		    </div>
+		  </div>
+		
+	  <%= render 'home/new_answer_form' %>
+	  <% @answers.each do |a| %>
+	  	<ul class="list-group list-group-flush">
+		    
+				  <div class="card-body">
+				  	<li class="list-group-item">
+					  	<img src="<%= a.gravatar %>" class="media-object" alt="">
+					    <h5 class="card-title"><%= a.email %> answerd:</h5>
+					    <p class="card-text"><%= a.body %></p>
+					    <p class="card-text"><small class="text-muted"><%= time_ago_in_words a.created_at%> ago</small></p>
+					  </li>
+				  </div>
+			
+		  </ul>
+		<% end %>
+
+		<% if @answers.empty? %>
+			<div class="alert alert-info">Noch nicht hier jetzt, was möchten Sie jetzt antworten?</div>
+		<% end %>
+	  
+	  <div class="card-body">
+	    <a href="#" class="card-link" data-toggle="modal" data-target="#new-answer-modal">submit answer</a>
+	    <a href="#" class="card-link">Another link</a>
+	  </div>
+	</div>
+</div>

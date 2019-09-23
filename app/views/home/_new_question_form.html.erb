@@ -1,0 +1,46 @@
+<div class="bd-example bd-example-modal">
+  <div class="modal" id="new-question-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- <form class="form-horizontal" action="/questions" method="POST">
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Email address</label>
+              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+            </div>
+            <div class="form-group">
+              <label for="inputQuestion">Question</label>
+              <textarea class="form-control" id="inputQuestion" rows="3"></textarea>
+            </div>
+          </form> -->
+          <%= form_for :questions, url: '/questions', html: { class: 'form-horizontal' } do %>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" name="question[email]" value="<%= current_user_email %>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+              <label for="inputQuestion">Question</label>
+              <textarea class="form-control" name="question[body]" id="inputQuestion" rows="3" required></textarea>
+            </div>
+            <div class="form-group form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          <% end %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
