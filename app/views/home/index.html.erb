@@ -1,26 +1,28 @@
-<div class="container">
-	<h1>Welcome</h1>
-		<div class="row align-items-start">
-      <% @questions.each do |q| %>
-				<div class="row align-items-center">
-			    <div class="col">
-			      <div class="row card-columns"> 
-							<div class="card">
-							  <div class="card-body">
-							    <h5 class="card-title"><img src="<%= q.gravatar %>" class="media-object" alt=""><%= q.email %> Asked:</h5>
-							    <p class="card-text"><%= q.body %></p>
-							    <p class="card-text"><small class="text-muted"><%= time_ago_in_words q.created_at%> ago</small></p>
-							    <a href="<%= question_path(q) %>" class="card-link">View Answers</a>
-							  </div>
+<div class="boxes">
+	<div class="container">
+		<h1>Welcome</h1>
+			<div class="row align-items-start">
+	      <% @questions.each do |q| %>
+					<div class="row align-items-center">
+				    <div class="col">
+				      <div class="row card-columns"> 
+								<div class="card">
+								  <div class="card-body">
+								    <h5 class="card-title"><img src="<%= q.gravatar %>" class="float media-object" alt=""><%= q.email %> Asked:</h5>
+								    <p class="card-text"><%= truncate q.body, length: 300 %></p>
+								    <p class="card-text"><small class="text-muted"><%= time_ago_in_words q.created_at%> ago</small></p>
+								    <a href="<%= question_path(q) %>" class="card-link">View Answers</a>
+								  </div>
+								</div>
 							</div>
-						</div>
-			    </div> 
-			  </div>
-			<% end %>
-			<% if @questions.empty? %>
-				<div class="alert alert-info">Noch nicht hier jetzt, was möchten Sie jetzt fragen?</div>
-			<% end %>
-    </div>	 	
+				    </div> 
+				  </div>
+				<% end %>
+				<% if @questions.empty? %>
+					<div class="alert alert-info">Noch nicht hier jetzt, was möchten Sie jetzt fragen?</div>
+				<% end %>
+	    </div>
+	</div>	 	
 </div>
 
 
