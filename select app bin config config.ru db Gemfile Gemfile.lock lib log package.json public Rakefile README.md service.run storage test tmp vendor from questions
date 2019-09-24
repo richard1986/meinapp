@@ -1,0 +1,11 @@
+                                     Table "public.questions"
+   Column   |            Type             |                       Modifiers                        
+------------+-----------------------------+--------------------------------------------------------
+ id         | bigint                      | not null default nextval('questions_id_seq'::regclass)
+ email      | character varying           | not null
+ body       | text                        | not null
+ created_at | timestamp without time zone | not null
+ updated_at | timestamp without time zone | not null
+Indexes:
+    "questions_pkey" PRIMARY KEY, btree (id)
+
